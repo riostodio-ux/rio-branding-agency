@@ -193,14 +193,10 @@ export default function Estimate() {
                 <img src={EstimateHero} style={{ height: '100vh', objectFit: 'contain' }} />
             </div>
 
-            <div style={{
-                maxWidth: '1400px', margin: '0 auto', padding: '6rem 4rem',
-                position: 'relative', zIndex: 1,
-                display: 'grid', gridTemplateColumns: 'minmax(250px, 300px) 1fr', gap: '4rem'
-            }}>
+            <div className="estimate-container">
 
-                {/* LEFT: STEPPER & TITLE */}
-                <div style={{ position: 'sticky', top: '6rem', height: 'fit-content' }}>
+                {/* LEFT: STEPPER (Desktop) & TITLE */}
+                <div className="stepper-sidebar">
                     <h1 style={{ fontSize: '3rem', fontFamily: displayFont, lineHeight: 1, marginBottom: '0.5rem' }}>
                         PROJECT<br /><span style={{ color: '#6CE9A6' }}>CALCULATOR</span>
                     </h1>
@@ -209,6 +205,17 @@ export default function Estimate() {
                     </p>
 
                     {step <= 5 && <Stepper />}
+                </div>
+
+                {/* MOBILE STEPPER (Simple indicator) */}
+                <div className="mobile-stepper">
+                    {[1, 2, 3, 4, 5].map(num => (
+                        <div key={num} style={{
+                            width: '100%', height: '4px', borderRadius: '2px',
+                            background: step >= num ? '#6CE9A6' : 'rgba(255,255,255,0.1)',
+                            transition: 'background 0.3s'
+                        }} />
+                    ))}
                 </div>
 
                 {/* RIGHT: FORM CONTENT */}

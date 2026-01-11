@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowLeft, ArrowRight, Package, PenTool, Monitor, ShoppingBag, CheckCircle2, Circle } from 'lucide-react';
+import { ArrowRight, Package, PenTool, Monitor, ShoppingBag, CheckCircle2 } from 'lucide-react';
 import EstimateHero from '../assets/estimate-hero.png';
 
 // --- STYLES ---

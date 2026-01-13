@@ -43,7 +43,7 @@ const Contact = () => {
                                 Serious inquiries only. We are typically booked 1-2 months in advance.
                             </p>
 
-                            <a href="mailto:hello@riobranding.agency" style={{
+                            <a href="mailto:riostodio@gmail.com" style={{
                                 fontSize: '2rem',
                                 borderBottom: `2px solid ${theme.accent}`,
                                 display: 'inline-block',
@@ -51,7 +51,7 @@ const Contact = () => {
                                 color: theme.text,
                                 fontFamily: "'Bebas Neue', sans-serif"
                             }}>
-                                hello@riobranding.agency
+                                riostodio@gmail.com
                             </a>
 
                             <div style={{ display: 'flex', gap: '4rem' }}>

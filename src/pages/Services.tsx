@@ -27,14 +27,14 @@ const Services = () => {
             desc: 'Logos are cheap. Legacy is built on systems. We design comprehensive visual languages that scream authority.'
         },
         {
-            title: 'DIGITAL',
-            subtitle: 'THE ENGINE',
-            desc: 'Websites that look like art and sell like machines. High performance, zero fluff, maximum conversion.'
+            title: 'PACKAGING',
+            subtitle: 'THE TOUCH',
+            desc: 'Shelf-shattering designs. From box to bottle to bag, we create unboxing experiences that people can’t wait to share.'
         },
         {
-            title: 'CONTENT',
-            subtitle: 'THE VOICE',
-            desc: 'Copy that converts. Visuals that stop the scroll. We tell your story the way it matches your ambition.'
+            title: 'WEB & COMMERCE',
+            subtitle: 'THE ENGINE',
+            desc: 'Websites that look like art and sell like machines. High performance, zero fluff, maximum conversion.'
         }
     ];
 

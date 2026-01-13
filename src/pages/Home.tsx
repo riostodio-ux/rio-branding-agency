@@ -36,17 +36,17 @@ const Home = () => {
                     }}
                     style={{ display: 'flex', whiteSpace: 'nowrap' }}
                 >
-                    <div style={{ display: 'inline-block', color: 'black', fontSize: '1.5rem', fontWeight: 800, textTransform: 'uppercase', paddingRight: '2rem' }}>
+                    <div className="trust-strip-text" style={{ display: 'inline-block', color: 'black', fontSize: '1.5rem', fontWeight: 800, textTransform: 'uppercase', paddingRight: '2rem' }}>
                         ★ TRUSTED BY AMBITIOUS FOUNDERS ★ STARTUPS ★ GROWING BRANDS ★ NO FLUFF ★ PURE STRATEGY
                     </div>
-                    <div style={{ display: 'inline-block', color: 'black', fontSize: '1.5rem', fontWeight: 800, textTransform: 'uppercase', paddingRight: '2rem' }}>
+                    <div className="trust-strip-text" style={{ display: 'inline-block', color: 'black', fontSize: '1.5rem', fontWeight: 800, textTransform: 'uppercase', paddingRight: '2rem' }}>
                         ★ TRUSTED BY AMBITIOUS FOUNDERS ★ STARTUPS ★ GROWING BRANDS ★ NO FLUFF ★ PURE STRATEGY
                     </div>
                     {/* Duplicate for seamless loop */}
-                    <div style={{ display: 'inline-block', color: 'black', fontSize: '1.5rem', fontWeight: 800, textTransform: 'uppercase', paddingRight: '2rem' }}>
+                    <div className="trust-strip-text" style={{ display: 'inline-block', color: 'black', fontSize: '1.5rem', fontWeight: 800, textTransform: 'uppercase', paddingRight: '2rem' }}>
                         ★ TRUSTED BY AMBITIOUS FOUNDERS ★ STARTUPS ★ GROWING BRANDS ★ NO FLUFF ★ PURE STRATEGY
                     </div>
-                    <div style={{ display: 'inline-block', color: 'black', fontSize: '1.5rem', fontWeight: 800, textTransform: 'uppercase', paddingRight: '2rem' }}>
+                    <div className="trust-strip-text" style={{ display: 'inline-block', color: 'black', fontSize: '1.5rem', fontWeight: 800, textTransform: 'uppercase', paddingRight: '2rem' }}>
                         ★ TRUSTED BY AMBITIOUS FOUNDERS ★ STARTUPS ★ GROWING BRANDS ★ NO FLUFF ★ PURE STRATEGY
                     </div>
                 </motion.div>
@@ -73,7 +73,7 @@ const Home = () => {
                                 },
                                 // Force 3 lines visual
                                 desc: 'A professional website, forged to help your business grow stronger and faster.',
-                                items: ['Custom design', 'Mobile-friendly', 'Built to convert', 'Easy to update']
+                                items: ['Custom Design', 'CMS Integration', 'Responsive', 'SEO Optimized']
                             },
                             {
                                 id: 'brand',
@@ -88,13 +88,13 @@ const Home = () => {
                                 },
                                 // Force 3 lines visual
                                 desc: 'Your brand, sharpened and consistent across every front it faces.',
-                                items: ['Logo design', 'Visual style', 'Style guide', 'On-brand visuals']
+                                items: ['Logo Suite', 'Brand Guidelines', 'Typography', 'Social Kit']
                             },
                             {
-                                id: 'msg',
-                                pill: 'MESSAGING',
-                                title: <>CLEAR <br /> MESSAGING</>,
-                                bird: BirdMsg,
+                                id: 'pack',
+                                pill: 'PACKAGING',
+                                title: <>PACKAGING <br /> DESIGN</>,
+                                bird: BirdMsg, // Reusing BirdMsg as requested
                                 birdConfig: {
                                     width: '125px',
                                     rotate: '4deg',
@@ -102,12 +102,12 @@ const Home = () => {
                                     delay: '-4s'
                                 },
                                 // Force 3 lines visual
-                                desc: 'Words that rally your audience and win hearts (and sales).',
-                                items: ['Headline & copywriting', 'Calls-to-action', 'Industry specific', 'Content that connects']
+                                desc: 'Shelf-shattering designs. Unboxing experiences that people can\'t wait to share.',
+                                items: ['Box & Label Design', 'Pouch / Bag', '3D Renders', 'Print-Ready Files']
                             },
                             {
                                 id: 'vis',
-                                pill: 'VISIBILITY',
+                                pill: 'GROWTH',
                                 title: <>ONLINE <br /> VISIBILITY</>,
                                 bird: BirdVis,
                                 birdConfig: {
@@ -118,7 +118,7 @@ const Home = () => {
                                 },
                                 // Force 3 lines visual
                                 desc: 'Be seen where it matters — across search, social, AI, and beyond.',
-                                items: ['Strong SEO', 'Social integration', 'AI visibility', 'Local reach']
+                                items: ['Strong SEO', 'Social Integration', 'AI Visibility', 'Local Reach']
                             }
                         ];
 
@@ -643,7 +643,7 @@ const Home = () => {
                 <Container>
                     <h2 className="text-large" style={{ marginBottom: '6rem', textAlign: 'center' }}>WHY RIO?</h2>
 
-                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(400px, 1fr))', gap: '0', alignItems: 'stretch' }}>
+                    <div className="why-rio-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(400px, 1fr))', gap: '0', alignItems: 'stretch' }}>
 
                         {/* Bad Options - WHITE CARD */}
                         <div style={{
@@ -805,7 +805,7 @@ const Home = () => {
             < Section style={{ padding: '10rem 0' }}>
                 <Container>
                     <h2 style={{ fontSize: '3rem', marginBottom: '4rem', textAlign: 'center' }}>OUR CLIENTS' WORDS.</h2>
-                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))', gap: '2rem' }}>
+                    <div className="testimonials-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))', gap: '2rem' }}>
                         {[
                             { text: "Rio transformed our digital presence completely. The design quality and attention to detail exceeded our expectations.", author: "Zak S.", company: "Founder, Fintech" },
                             { text: "They didn't just build us a website - they engineered a platform that understands our customers better than they understand themselves.", author: "Chris T.", company: "CEO, Growth Co." },
@@ -896,7 +896,7 @@ const Home = () => {
             {/* PRICING INTRO - FEATURE CARDS */}
             <Section style={{ padding: '8rem 0', backgroundColor: '#213232' }}>
                 <Container>
-                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '4rem' }}>
+                    <div className="costs-header" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '4rem' }}>
                         <div>
                             <h2 style={{ fontSize: '5rem', lineHeight: 0.8, marginBottom: '1.5rem', fontFamily: "'Bebas Neue', sans-serif" }}>WHAT IT COSTS</h2>
                             <p style={{ fontSize: '1.25rem', color: 'var(--color-text-muted)', maxWidth: '500px', fontFamily: "'Inter', sans-serif" }}>
@@ -909,7 +909,7 @@ const Home = () => {
                     </div>
 
                     {/* TOP ROW: 3 CARDS */}
-                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '1.5rem', marginBottom: '1.5rem' }}>
+                    <div className="costs-features-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '1.5rem', marginBottom: '1.5rem' }}>
                         <div style={{ backgroundColor: 'white', color: 'black', padding: '2.5rem', borderRadius: '1.5rem', minHeight: '200px' }}>
                             <h3 style={{ fontSize: '2.5rem', marginBottom: '1rem', fontFamily: "'Bebas Neue', sans-serif", color: 'black' }}>QUICK</h3>
                             <p style={{ fontSize: '1.1rem', fontWeight: 500, fontFamily: "'Inter', sans-serif", lineHeight: 1.4 }}>Complete in a few minutes with our simple 5-step process</p>
@@ -925,7 +925,7 @@ const Home = () => {
                     </div>
 
                     {/* BOTTOM ROW: CALCULATOR DETAILS + IMAGE */}
-                    <div style={{ display: 'grid', gridTemplateColumns: '2fr 1fr', gap: '1.5rem', alignItems: 'stretch' }}>
+                    <div className="costs-bottom-grid" style={{ display: 'grid', gridTemplateColumns: '2fr 1fr', gap: '1.5rem', alignItems: 'stretch' }}>
 
                         {/* LEFT: Calculator Details */}
                         <div style={{ backgroundColor: 'white', color: 'black', padding: '3rem', borderRadius: '1.5rem', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
@@ -997,7 +997,7 @@ const Home = () => {
             {/* FINAL CTA - GREEN BLOCK OVERHAUL */}
             < Section style={{ padding: '10rem 0' }}>
                 <Container>
-                    <div style={{ backgroundColor: '#2A3B31', border: 'none', padding: '6rem', borderRadius: '2rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '4rem', color: 'white' }}>
+                    <div className="final-cta-box" style={{ backgroundColor: '#2A3B31', border: 'none', padding: '6rem', borderRadius: '2rem', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '4rem', color: 'white' }}>
 
                         <div style={{ flex: 1, minWidth: '300px' }}>
                             <h2 className="text-large" style={{ lineHeight: 0.9, marginBottom: '2rem', color: 'white' }}>

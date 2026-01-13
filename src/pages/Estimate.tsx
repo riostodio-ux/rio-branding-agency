@@ -335,6 +335,14 @@ export default function Estimate() {
 
                                     {selections.projectType.includes('Website') && (
                                         <>
+                                            <div>
+                                                <label style={labelStyle}>Website Style</label>
+                                                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
+                                                    {['Minimalist & Clean', 'Corporate & Trust', 'Creative & Animated', 'Dark & Modern'].map(s => (
+                                                        <div key={s} style={cardStyle(selections.designStyle === s)} onClick={() => handleSelect('designStyle', s)}>{s}</div>
+                                                    ))}
+                                                </div>
+                                            </div>
                                             <InputGroup label="Reference Websites (URLs)" placeholder="e.g., www.awwwards.com, ..." />
                                             <InputGroup label="What do you like about them?" placeholder="Smooth animations, clean layout, typography..." />
                                         </>

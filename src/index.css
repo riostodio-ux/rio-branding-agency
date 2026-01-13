@@ -237,6 +237,7 @@ h6 {
   border: none;
   margin: 0;
 }
+
 /* Estimate Page Responsive Grid */
 .estimate-container {
   display: grid;
@@ -258,7 +259,8 @@ h6 {
 @media (max-width: 900px) {
   .estimate-container {
     grid-template-columns: 1fr;
-    padding: 6rem 1.5rem; /* Reduced side padding */
+    padding: 6rem 1.5rem;
+    /* Reduced side padding */
     gap: 3rem;
   }
 
@@ -266,7 +268,8 @@ h6 {
     position: relative;
     top: 0;
     margin-bottom: 1rem;
-    display: none; /* Hide vertical stepper on mobile */
+    display: none;
+    /* Hide vertical stepper on mobile */
   }
 }
 
@@ -282,5 +285,454 @@ h6 {
     overflow-x: auto;
     padding-bottom: 10px;
     gap: 1rem;
+  }
+}
+
+/* ===== COMPREHENSIVE MOBILE RESPONSIVENESS ===== */
+
+/* Global Container Padding on Mobile */
+@media (max-width: 768px) {
+  section>div {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+}
+
+/* Hero Button Sizing on Mobile */
+@media (max-width: 768px) {
+  .hero-cta-container {
+    flex-direction: column !important;
+    gap: 1rem !important;
+    align-items: center !important;
+    width: 100% !important;
+    padding: 0 1rem !important;
+  }
+
+  .hero-cta-container button {
+    width: 100% !important;
+    max-width: 280px !important;
+    font-size: 1rem !important;
+    padding: 1rem 1.5rem !important;
+  }
+
+  .hero-cta-container a {
+    font-size: 0.95rem !important;
+    text-align: center !important;
+  }
+}
+
+/* Typography Scaling */
+@media (max-width: 768px) {
+  .text-huge {
+    font-size: clamp(2.5rem, 12vw, 4rem) !important;
+  }
+
+  .text-large {
+    font-size: clamp(1.8rem, 6vw, 2.5rem) !important;
+  }
+
+  h1 {
+    font-size: clamp(2.5rem, 10vw, 4rem) !important;
+  }
+
+  h2 {
+    font-size: clamp(2rem, 8vw, 3rem) !important;
+  }
+
+  h3 {
+    font-size: clamp(1.5rem, 6vw, 2rem) !important;
+  }
+}
+
+/* Trust Strip Ticker - Mobile Size */
+@media (max-width: 768px) {
+  .trust-strip-text {
+    font-size: 1.1rem !important;
+    padding-right: 1.5rem !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .trust-strip-text {
+    font-size: 1rem !important;
+    padding-right: 1rem !important;
+  }
+}
+
+/* Services Cards - Horizontal Slider on Mobile */
+@media (max-width: 1099px) {
+  .services-mobile {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    overflow-x: scroll !important;
+    overflow-y: visible !important;
+    scroll-snap-type: x mandatory !important;
+    -webkit-overflow-scrolling: touch !important;
+    gap: 1.5rem !important;
+    padding: 5rem 1.5rem 2rem 1.5rem !important;
+    margin: 0 !important;
+    scrollbar-width: none !important;
+    -ms-overflow-style: none !important;
+    align-items: stretch !important;
+  }
+
+  .services-mobile::-webkit-scrollbar {
+    display: none;
+  }
+
+  .services-mobile>.service-card {
+    flex: 0 0 auto !important;
+    width: 85vw !important;
+    min-width: 300px !important;
+    max-width: 360px !important;
+    scroll-snap-align: center !important;
+    scroll-snap-stop: always !important;
+    height: auto !important;
+  }
+
+  /* Ensure card content scales properly */
+  .services-mobile>.service-card h3 {
+    font-size: 2.8rem !important;
+  }
+
+  .services-mobile>.service-card p {
+    font-size: 1rem !important;
+  }
+
+  .services-mobile>.service-card button {
+    font-size: 1.4rem !important;
+    padding: 0.75rem !important;
+  }
+}
+
+/* Cards and Sections - Mobile Padding */
+@media (max-width: 768px) {
+  .card {
+    padding: 1.5rem !important;
+    border-radius: 1rem !important;
+  }
+
+  section {
+    padding-top: 4rem !important;
+    padding-bottom: 4rem !important;
+  }
+}
+
+/* Grid Layouts - Stack on Mobile */
+@media (max-width: 768px) {
+  [style*="gridTemplateColumns"] {
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem !important;
+  }
+}
+
+/* Value Statement Section */
+@media (max-width: 768px) {
+  [style*="minmax(500px"] {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* Process/Benefits Cards */
+@media (max-width: 768px) {
+  [style*="minmax(400px"] {
+    grid-template-columns: 1fr !important;
+    gap: 2rem !important;
+  }
+}
+
+/* ===== OUR WORK SECTION - MOBILE ===== */
+@media (max-width: 768px) {
+
+  /* Work section header */
+  .work-section-header {
+    flex-direction: column !important;
+    gap: 1.5rem !important;
+    text-align: center !important;
+  }
+
+  .work-section-header h2 {
+    font-size: 3rem !important;
+  }
+
+  /* Project cards - stack vertically */
+  .work-project-grid {
+    grid-template-columns: 1fr !important;
+    gap: 2rem !important;
+  }
+
+  /* Project title sizing */
+  .work-project-title {
+    font-size: 3rem !important;
+  }
+
+  /* Project image container */
+  .work-project-image {
+    height: 250px !important;
+    order: 1 !important;
+  }
+
+  /* Project text */
+  .work-project-text {
+    order: 2 !important;
+  }
+}
+
+/* Work Section - Projects Image Height */
+@media (max-width: 768px) {
+  [style*="height: '450px'"] {
+    height: 220px !important;
+  }
+
+  /* Reduce project title on mobile */
+  [style*="fontSize: '6rem'"] {
+    font-size: 2.8rem !important;
+  }
+
+  /* Reduce "OUR WORK" header */
+  [style*="fontSize: '5rem'"] {
+    font-size: 2.5rem !important;
+  }
+}
+
+/* Team Section */
+@media (max-width: 768px) {
+  [style*="minWidth: '280px'"] {
+    min-width: 200px !important;
+    height: 280px !important;
+  }
+}
+
+/* ===== TESTIMONIALS - HORIZONTAL SLIDER ON MOBILE ===== */
+@media (max-width: 768px) {
+  .testimonials-grid {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    overflow-x: scroll !important;
+    overflow-y: visible !important;
+    scroll-snap-type: x mandatory !important;
+    -webkit-overflow-scrolling: touch !important;
+    gap: 1.5rem !important;
+    padding: 1rem 1.5rem !important;
+    margin: 0 -1.5rem !important;
+    scrollbar-width: none !important;
+    -ms-overflow-style: none !important;
+  }
+
+  .testimonials-grid::-webkit-scrollbar {
+    display: none;
+  }
+
+  .testimonials-grid>div {
+    flex: 0 0 auto !important;
+    width: 85vw !important;
+    min-width: 280px !important;
+    max-width: 340px !important;
+    scroll-snap-align: center !important;
+    scroll-snap-stop: always !important;
+  }
+
+  .testimonials-grid>div p {
+    font-size: 1rem !important;
+  }
+}
+
+/* ===== WHY RIO - HORIZONTAL SLIDER ON MOBILE ===== */
+@media (max-width: 768px) {
+  .why-rio-grid {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    overflow-x: scroll !important;
+    overflow-y: visible !important;
+    scroll-snap-type: x mandatory !important;
+    -webkit-overflow-scrolling: touch !important;
+    gap: 1rem !important;
+    padding: 1rem 1.5rem !important;
+    margin: 0 -1.5rem !important;
+    scrollbar-width: none !important;
+    -ms-overflow-style: none !important;
+  }
+
+  .why-rio-grid::-webkit-scrollbar {
+    display: none;
+  }
+
+  .why-rio-grid>div {
+    flex: 0 0 auto !important;
+    width: 85vw !important;
+    min-width: 280px !important;
+    max-width: 340px !important;
+    scroll-snap-align: center !important;
+    scroll-snap-stop: always !important;
+    border-radius: 1.5rem !important;
+    padding: 2rem !important;
+    transform: none !important;
+  }
+
+  .why-rio-grid>div h3 {
+    font-size: 2rem !important;
+  }
+
+  .why-rio-grid>div li {
+    font-size: 1rem !important;
+  }
+}
+
+/* ===== WHAT IT COSTS - MOBILE LAYOUT ===== */
+@media (max-width: 768px) {
+
+  /* Header */
+  .costs-header {
+    flex-direction: column !important;
+    gap: 1.5rem !important;
+    margin-bottom: 2rem !important;
+  }
+
+  .costs-header h2 {
+    font-size: 2.5rem !important;
+  }
+
+  .costs-header p {
+    font-size: 1rem !important;
+  }
+
+  /* Features cards - horizontal slider */
+  .costs-features-grid {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    overflow-x: scroll !important;
+    overflow-y: visible !important;
+    scroll-snap-type: x mandatory !important;
+    -webkit-overflow-scrolling: touch !important;
+    gap: 1rem !important;
+    padding: 1rem 0.5rem !important;
+    margin: 0 -0.5rem !important;
+    scrollbar-width: none !important;
+    -ms-overflow-style: none !important;
+    margin-bottom: 1.5rem !important;
+  }
+
+  .costs-features-grid::-webkit-scrollbar {
+    display: none;
+  }
+
+  .costs-features-grid>div {
+    flex: 0 0 auto !important;
+    width: 75vw !important;
+    min-width: 240px !important;
+    max-width: 280px !important;
+    min-height: auto !important;
+    padding: 1.5rem !important;
+    scroll-snap-align: center !important;
+    scroll-snap-stop: always !important;
+  }
+
+  .costs-features-grid>div h3 {
+    font-size: 1.8rem !important;
+  }
+
+  .costs-features-grid>div p {
+    font-size: 0.95rem !important;
+  }
+
+  /* Bottom grid - stack vertically */
+  .costs-bottom-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem !important;
+  }
+
+  .costs-bottom-grid>div {
+    padding: 1.5rem !important;
+  }
+
+  .costs-bottom-grid>div h3 {
+    font-size: 2rem !important;
+  }
+
+  .costs-bottom-grid>div li {
+    font-size: 0.95rem !important;
+  }
+
+  /* Image card on mobile */
+  .costs-bottom-grid>div:last-child {
+    min-height: 250px !important;
+  }
+}
+
+/* Estimate Page - Already handled above */
+
+/* ===== FINAL CTA - MOBILE LAYOUT ===== */
+@media (max-width: 768px) {
+  .final-cta-box {
+    padding: 2.5rem 1.5rem !important;
+    gap: 2rem !important;
+    flex-direction: column !important;
+    text-align: center !important;
+    border-radius: 1.5rem !important;
+  }
+
+  .final-cta-box h2 {
+    font-size: 2rem !important;
+    line-height: 1 !important;
+    margin-bottom: 1rem !important;
+  }
+
+  .final-cta-box p {
+    font-size: 1rem !important;
+    margin-bottom: 1.5rem !important;
+  }
+
+  .final-cta-box button {
+    width: 100% !important;
+    padding: 1rem 2rem !important;
+    font-size: 1.1rem !important;
+  }
+
+  /* Image container */
+  .final-cta-box>div:last-child {
+    width: 200px !important;
+    height: 200px !important;
+    order: -1 !important;
+  }
+}
+
+/* Footer adjustments */
+@media (max-width: 768px) {
+  footer {
+    padding: 3rem 1rem !important;
+  }
+
+  footer [style*="gridTemplateColumns"] {
+    grid-template-columns: 1fr !important;
+    text-align: center !important;
+  }
+}
+
+/* Small phones */
+@media (max-width: 380px) {
+  .text-huge {
+    font-size: clamp(2rem, 11vw, 3rem) !important;
+  }
+
+  .services-mobile>div {
+    flex: 0 0 90vw !important;
+    min-width: 260px !important;
+  }
+
+  .hero-cta-container button {
+    max-width: 100% !important;
+  }
+
+  /* Work section extra small */
+  [style*="fontSize: '6rem'"] {
+    font-size: 2.2rem !important;
+  }
+
+  [style*="height: '450px'"] {
+    height: 180px !important;
   }
 }

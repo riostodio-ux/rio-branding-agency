@@ -64,16 +64,19 @@ const Hero = () => {
                     YOU BUILD THE BUSINESS.
                 </h1>
 
-                {/* Subhead - Controlled width, ~2 lines */}
+                {/* Subhead - Body Text Style */}
                 <p
                     className="animate-fade-in delay-200"
                     style={{
-                        fontSize: 'clamp(1.2rem, 1.5vw, 1.35rem)',
+                        fontFamily: "'Inter', sans-serif",
+                        fontSize: 'clamp(1rem, 2vw, 1.15rem)',
                         color: 'var(--color-text-muted)',
-                        maxWidth: '680px',
-                        margin: '0 auto 3.5rem',
-                        lineHeight: 1.5,
-                        fontWeight: 400
+                        maxWidth: '520px',
+                        margin: '0 auto 3rem',
+                        lineHeight: 1.7,
+                        fontWeight: 400,
+                        textTransform: 'none',
+                        letterSpacing: 'normal'
                     }}
                 >
                     We bridge the gap between "good design" and business growth.
@@ -82,8 +85,8 @@ const Hero = () => {
 
                 {/* CTAs - Matches Reference Rhythm */}
                 <div
-                    className="animate-fade-in delay-300"
-                    style={{ display: 'flex', justifyContent: 'center', gap: '2rem', alignItems: 'center' }}
+                    className="animate-fade-in delay-300 hero-cta-container"
+                    style={{ display: 'flex', justifyContent: 'center', gap: '2rem', alignItems: 'center', flexWrap: 'wrap' }}
                 >
                     <Button size="lg" style={{
                         backgroundColor: 'var(--color-primary)',

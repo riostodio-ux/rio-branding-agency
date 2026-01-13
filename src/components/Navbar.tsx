@@ -103,9 +103,17 @@ const Navbar = () => {
                 <button
                     className="mobile-toggle"
                     onClick={() => setIsOpen(!isOpen)}
-                    style={{ color: 'var(--color-text-white)' }}
+                    style={{
+                        color: 'var(--color-text-white)',
+                        background: 'transparent',
+                        border: 'none',
+                        padding: '0.5rem',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center'
+                    }}
                 >
-                    {isOpen ? <X /> : <Menu />}
+                    {isOpen ? <X size={28} /> : <Menu size={28} />}
                 </button>
             </Container>
 

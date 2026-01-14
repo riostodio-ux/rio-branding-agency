@@ -15,9 +15,9 @@ const Footer = () => {
                             We are Rio Branding — a creative agency building bold identities and digital experiences for brands ready to stand out.
                         </p>
                         <div style={{ display: 'flex', gap: '1.5rem' }}>
-                            <a href="#" style={{ color: 'white', padding: '0.5rem', border: '1px solid var(--color-border)', borderRadius: '50%' }}><Linkedin size={20} /></a>
-                            <a href="#" style={{ color: 'white', padding: '0.5rem', border: '1px solid var(--color-border)', borderRadius: '50%' }}><Twitter size={20} /></a>
-                            <a href="#" style={{ color: 'white', padding: '0.5rem', border: '1px solid var(--color-border)', borderRadius: '50%' }}><Instagram size={20} /></a>
+                            <a href="https://www.linkedin.com/company/riopackaging" target="_blank" rel="noopener noreferrer" style={{ color: 'white', padding: '0.5rem', border: '1px solid var(--color-border)', borderRadius: '50%' }}><Linkedin size={20} /></a>
+                            <a href="https://x.com/Riopackaging" target="_blank" rel="noopener noreferrer" style={{ color: 'white', padding: '0.5rem', border: '1px solid var(--color-border)', borderRadius: '50%' }}><Twitter size={20} /></a>
+                            <a href="https://www.instagram.com/rio_branding/" target="_blank" rel="noopener noreferrer" style={{ color: 'white', padding: '0.5rem', border: '1px solid var(--color-border)', borderRadius: '50%' }}><Instagram size={20} /></a>
                         </div>
                     </div>
 

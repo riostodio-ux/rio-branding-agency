@@ -6,3 +6,7 @@ export { default as Process } from './Process';
 export { default as Contact } from './Contact';
 export { default as Estimate } from './Estimate';
 export { default as ProjectDetail } from './ProjectDetail';
+export { default as Privacy } from './Privacy';
+export { default as Terms } from './Terms';
+export { default as KnowledgeHub } from './KnowledgeHub';
+export { default as ArticleDetail } from './ArticleDetail';

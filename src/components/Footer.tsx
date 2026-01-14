@@ -47,10 +47,10 @@ const Footer = () => {
                         <h4 style={{ textTransform: 'uppercase', marginBottom: '2rem', fontSize: '1rem', letterSpacing: '0.1em' }}>Helpful Links</h4>
                         <ul style={{ listStyle: 'none', padding: 0, display: 'flex', flexDirection: 'column', gap: '1rem' }}>
                             {[
-                                { label: 'Knowledge Hub', path: '/contact' },
+                                { label: 'Knowledge Hub', path: '/knowledge' },
                                 { label: 'Brand Strategy Guide', path: '/process' },
                                 { label: 'ROI Calculator', path: '/estimate' },
-                                { label: 'Privacy Policy', path: '/contact' }
+                                { label: 'Privacy Policy', path: '/privacy' }
                             ].map(item => (
                                 <li key={item.label}>
                                     <Link to={item.path} style={{ fontSize: '1.1rem', fontWeight: 500, color: 'var(--color-text-muted)', transition: 'color 0.2s', textDecoration: 'none' }}>
@@ -76,8 +76,8 @@ const Footer = () => {
                 <div style={{ borderTop: '1px solid var(--color-border)', paddingTop: '2rem', display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap', gap: '1rem', color: 'var(--color-text-muted)', fontSize: '0.9rem' }}>
                     <div>© 2026 Rio Branding Agency. All rights reserved.</div>
                     <div style={{ display: 'flex', gap: '2rem' }}>
-                        <Link to="/contact" style={{ color: 'var(--color-text-muted)', textDecoration: 'none' }}>Privacy Policy</Link>
-                        <Link to="/contact" style={{ color: 'var(--color-text-muted)', textDecoration: 'none' }}>Terms of Service</Link>
+                        <Link to="/privacy" style={{ color: 'var(--color-text-muted)', textDecoration: 'none' }}>Privacy Policy</Link>
+                        <Link to="/terms" style={{ color: 'var(--color-text-muted)', textDecoration: 'none' }}>Terms of Service</Link>
                     </div>
                 </div>
             </Container>

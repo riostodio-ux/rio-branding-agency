@@ -3,7 +3,8 @@ import { motion } from 'framer-motion';
 import { Section, Container } from '../components/Layout';
 import Button from '../components/Button';
 import { useNavigate, Link } from 'react-router-dom';
-import { Check, X, Star, ArrowRight, ArrowUpRight } from 'lucide-react';
+import { Check, X, Star, ArrowRight, ArrowUpRight, ArrowLeft } from 'lucide-react';
+import { useRef } from 'react';
 
 // Assets
 import BirdWeb from '../assets/bird-web-hd.png';
@@ -21,6 +22,19 @@ import CtaZap from '../assets/cta-zap.jpg';
 
 const Home = () => {
     const navigate = useNavigate();
+    const sliderRef = useRef<HTMLDivElement>(null);
+
+    const scrollLeft = () => {
+        if (sliderRef.current) {
+            sliderRef.current.scrollBy({ left: -300, behavior: 'smooth' });
+        }
+    };
+
+    const scrollRight = () => {
+        if (sliderRef.current) {
+            sliderRef.current.scrollBy({ left: 300, behavior: 'smooth' });
+        }
+    };
     return (
         <>
             <Hero />
@@ -196,7 +210,7 @@ const Home = () => {
                                         opacity: 0.8
                                     }}></div>
 
-                                    <div className="services-mobile">
+                                    <div className="services-mobile" ref={sliderRef}>
                                         {services.map((service) => (
                                             <div key={service.id} className="service-card" style={{
                                                 backgroundColor: 'white',
@@ -285,6 +299,38 @@ const Home = () => {
                                                 </Button>
                                             </div>
                                         ))}
+                                    </div>
+                                    <div className="services-mobile-nav" style={{ display: 'flex', justifyContent: 'center', gap: '1rem', marginTop: '1.5rem' }}>
+                                        <button onClick={scrollLeft} style={{
+                                            backgroundColor: 'rgba(255,255,255,0.1)',
+                                            border: '1px solid var(--glass-border)',
+                                            borderRadius: '50%',
+                                            width: '50px',
+                                            height: '50px',
+                                            display: 'flex',
+                                            alignItems: 'center',
+                                            justifyContent: 'center',
+                                            color: 'white',
+                                            cursor: 'pointer',
+                                            backdropFilter: 'blur(10px)'
+                                        }}>
+                                            <ArrowLeft size={24} />
+                                        </button>
+                                        <button onClick={scrollRight} style={{
+                                            backgroundColor: 'rgba(255,255,255,0.1)',
+                                            border: '1px solid var(--glass-border)',
+                                            borderRadius: '50%',
+                                            width: '50px',
+                                            height: '50px',
+                                            display: 'flex',
+                                            alignItems: 'center',
+                                            justifyContent: 'center',
+                                            color: 'white',
+                                            cursor: 'pointer',
+                                            backdropFilter: 'blur(10px)'
+                                        }}>
+                                            <ArrowRight size={24} />
+                                        </button>
                                     </div>
                                 </div>
 
@@ -880,33 +926,33 @@ const Home = () => {
             <div className="section-divider"></div>
 
             {/* INSIGHTS */}
-            < Section style={{ padding: '10rem 0' }}>
+            <Section style={{ padding: '10rem 0' }}>
                 <Container>
                     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '4rem' }}>
                         <h2 style={{ fontSize: '3rem' }}>WHAT WE HAVE TO SAY</h2>
-                        <a href="#" style={{ fontSize: '1.2rem', fontWeight: 600 }}>READ OUR ARTICLES →</a>
+                        <Link to="/knowledge" style={{ fontSize: '1.2rem', fontWeight: 600 }}>READ OUR ARTICLES →</Link>
                     </div>
 
                     <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(500px, 1fr))', gap: '2rem' }}>
                         <div style={{ borderTop: '1px solid var(--color-border)', padding: '2rem 0', display: 'flex', gap: '2rem', alignItems: 'flex-start' }}>
                             <span style={{ fontSize: '1.5rem', color: 'var(--color-text-muted)' }}>01</span>
                             <div>
-                                <h3 style={{ fontSize: '2.5rem', marginBottom: '1rem' }}>HOW TO CHOOSE A BRANDING AGENCY IN 2026</h3>
+                                <Link to="/knowledge/how-to-choose-branding-agency" style={{ textDecoration: 'none', color: 'inherit' }}><h3 style={{ fontSize: '2.5rem', marginBottom: '1rem' }}>HOW TO CHOOSE A BRANDING AGENCY IN 2026</h3></Link>
                                 <p style={{ fontSize: '1.2rem', color: 'var(--color-text-muted)', fontFamily: "'Inter', sans-serif" }}>Learn how to evaluate partners, spot red flags, and find the right fit for your growth stage.</p>
                             </div>
-                            <ArrowRight size={32} style={{ marginLeft: 'auto' }} />
+                            <Link to="/knowledge/how-to-choose-branding-agency" style={{ marginLeft: 'auto', color: 'inherit' }}><ArrowRight size={32} /></Link>
                         </div>
                         <div style={{ borderTop: '1px solid var(--color-border)', padding: '2rem 0', display: 'flex', gap: '2rem', alignItems: 'flex-start' }}>
                             <span style={{ fontSize: '1.5rem', color: 'var(--color-text-muted)' }}>02</span>
                             <div>
-                                <h3 style={{ fontSize: '2.5rem', marginBottom: '1rem' }}>WHY YOUR WEBSITE ISN'T CONVERTING</h3>
+                                <Link to="/knowledge/why-website-not-converting" style={{ textDecoration: 'none', color: 'inherit' }}><h3 style={{ fontSize: '2.5rem', marginBottom: '1rem' }}>WHY YOUR WEBSITE ISN'T CONVERTING</h3></Link>
                                 <p style={{ fontSize: '1.2rem', color: 'var(--color-text-muted)', fontFamily: "'Inter', sans-serif" }}>Common mistakes that kill conversion rates and how to fix them with better UX and messaging.</p>
                             </div>
-                            <ArrowRight size={32} style={{ marginLeft: 'auto' }} />
+                            <Link to="/knowledge/why-website-not-converting" style={{ marginLeft: 'auto', color: 'inherit' }}><ArrowRight size={32} /></Link>
                         </div>
                     </div>
                 </Container>
-            </Section >
+            </Section>
 
             {/* FIT CHECK */}
             < Section style={{ padding: '10rem 0' }}>
@@ -1060,7 +1106,7 @@ const Home = () => {
                             <Button
                                 size="lg"
                                 style={{ backgroundColor: 'var(--color-primary)', color: 'black', padding: '1.5rem 3rem', fontSize: '1.5rem', fontWeight: 700 }}
-                                onClick={() => window.location.href = '/contact'}
+                                onClick={() => navigate('/contact')}
                             >
                                 START PROJECT
                             </Button>

@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Container } from './Layout';
 import Button from './Button';
 import { Menu, X } from 'lucide-react';
@@ -9,6 +9,7 @@ const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false);
     const location = useLocation();
+    const navigate = useNavigate();
 
     useEffect(() => {
         const handleScroll = () => {
@@ -96,7 +97,7 @@ const Navbar = () => {
 
                 {/* Right CTA */}
                 <div className="desktop-cta" style={{ display: 'none' }}>
-                    <Button onClick={() => window.location.href = '/contact'}>Start a Project</Button>
+                    <Button onClick={() => navigate('/contact')}>Start a Project</Button>
                 </div>
 
                 {/* Mobile Toggle */}
@@ -142,7 +143,7 @@ const Navbar = () => {
                             {link.name}
                         </Link>
                     ))}
-                    <Button style={{ width: '100%' }} onClick={() => window.location.href = '/contact'}>Start a Project</Button>
+                    <Button style={{ width: '100%' }} onClick={() => navigate('/contact')}>Start a Project</Button>
                 </div>
             )}
 

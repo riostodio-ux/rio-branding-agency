@@ -406,6 +406,16 @@ h6 {
   }
 }
 
+.services-mobile-nav {
+  display: none !important;
+}
+
+@media (max-width: 1099px) {
+  .services-mobile-nav {
+    display: flex !important;
+  }
+}
+
 /* Cards and Sections - Mobile Padding */
 @media (max-width: 768px) {
   .card {

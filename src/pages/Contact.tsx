@@ -300,8 +300,8 @@ const Contact = () => {
                                     <div style={{ marginTop: '2rem' }}>
                                         <Button size="lg" style={{
                                             borderRadius: '0',
-                                            backgroundColor: status === 'success' ? '#6BFF8E' : (status === 'error' ? '#ff4d4d' : theme.text),
-                                            color: status === 'success' ? '#213232' : theme.bg,
+                                            backgroundColor: status === 'error' ? '#ff4d4d' : theme.text,
+                                            color: theme.bg,
                                             width: '100%',
                                             fontSize: '1.25rem',
                                             padding: '1.5rem',
@@ -311,7 +311,7 @@ const Contact = () => {
                                             onClick={(e: React.MouseEvent) => handleSubmit(e)}
                                             disabled={status === 'sending'}
                                         >
-                                            {status === 'sending' ? 'SENDING...' : (status === 'success' ? 'MESSAGE SENT' : (status === 'error' ? 'ERROR - TRY AGAIN' : 'SEND INQUIRY'))}
+                                            {status === 'sending' ? 'SENDING...' : (status === 'error' ? 'ERROR - TRY AGAIN' : 'SEND INQUIRY')}
                                         </Button>
                                     </div>
                                 </form>

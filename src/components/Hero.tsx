@@ -1,8 +1,10 @@
 import { Container } from './Layout';
 import Button from './Button';
+import { useNavigate } from 'react-router-dom';
 
 
 const Hero = () => {
+    const navigate = useNavigate();
     return (
         <section style={{
             minHeight: '90vh',
@@ -96,7 +98,7 @@ const Hero = () => {
                         fontWeight: 600,
                         borderRadius: '999px', // Full pill
                         boxShadow: '0 10px 30px rgba(137, 225, 171, 0.15)'
-                    }}>
+                    }} onClick={() => navigate('/work')}>
                         View Our Work
                     </Button>
                     <a href="/contact" style={{

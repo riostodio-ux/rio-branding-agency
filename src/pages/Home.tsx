@@ -128,7 +128,17 @@ const Home = () => {
                             <>
                                 <style>{`
                                     /* Mobile Layout (Default) */
-                                    .services-mobile { display: grid; grid-template-columns: 1fr; gap: 2rem; }
+                                    .services-mobile { 
+                                        display: flex;
+                                        gap: 1.5rem;
+                                        overflow-x: auto;
+                                        padding: 0 1.5rem 2rem 1.5rem;
+                                        scroll-snap-type: x mandatory;
+                                        overscroll-behavior-x: contain;
+                                        -webkit-overflow-scrolling: touch;
+                                        scrollbar-width: none;
+                                    }
+                                    .services-mobile::-webkit-scrollbar { display: none; }
                                     .services-desktop { display: none; }
 
                                     /* Desktop Layout (Sliced Grid) */
@@ -168,93 +178,114 @@ const Home = () => {
                                     }
                                 `}</style>
 
-                                {/* MOBILE LAYOUT (Stacked Cards) */}
-                                <div className="services-mobile">
-                                    {services.map((service) => (
-                                        <div key={service.id} className="service-card" style={{
-                                            backgroundColor: 'white',
-                                            borderRadius: '1.5rem',
-                                            padding: '2.5rem 2rem 2.5rem 2rem',
-                                            position: 'relative',
-                                            display: 'flex',
-                                            flexDirection: 'column',
-                                            border: 'none',
-                                            boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)'
-                                        }}>
-                                            <div className="bird-wrapper" style={{ animationDelay: service.birdConfig.delay }}>
-                                                <img
-                                                    src={service.bird}
-                                                    alt={service.id}
-                                                    className="bird-img"
-                                                    style={{
-                                                        width: service.birdConfig.width,
-                                                        height: 'auto',
-                                                        transform: `rotate(${service.birdConfig.rotate})`,
-                                                        // @ts-ignore
-                                                        '--hover-rotate': service.birdConfig.hoverRotate
-                                                    }}
-                                                />
+                                {/* MOBILE LAYOUT (Stacked Cards -> Slider) */}
+                                <div style={{ position: 'relative' }}>
+                                    {/* Glowing Indicator Line */}
+                                    <div style={{
+                                        position: 'absolute',
+                                        right: 0,
+                                        top: '50%',
+                                        transform: 'translateY(-50%)',
+                                        width: '4px',
+                                        height: '40%',
+                                        backgroundColor: '#6BFF8E',
+                                        borderRadius: '2px',
+                                        boxShadow: '0 0 10px #6BFF8E, 0 0 20px #6BFF8E',
+                                        zIndex: 20,
+                                        pointerEvents: 'none',
+                                        opacity: 0.8
+                                    }}></div>
+
+                                    <div className="services-mobile">
+                                        {services.map((service) => (
+                                            <div key={service.id} className="service-card" style={{
+                                                backgroundColor: 'white',
+                                                borderRadius: '1.5rem',
+                                                padding: '2.5rem 2rem 2.5rem 2rem',
+                                                position: 'relative',
+                                                display: 'flex',
+                                                flexDirection: 'column',
+                                                border: 'none',
+                                                boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
+                                                minWidth: '85vw', /* Slider Width */
+                                                flex: '0 0 auto',
+                                                scrollSnapAlign: 'center'
+                                            }}>
+                                                <div className="bird-wrapper" style={{ animationDelay: service.birdConfig.delay }}>
+                                                    <img
+                                                        src={service.bird}
+                                                        alt={service.id}
+                                                        className="bird-img"
+                                                        style={{
+                                                            width: service.birdConfig.width,
+                                                            height: 'auto',
+                                                            transform: `rotate(${service.birdConfig.rotate})`,
+                                                            // @ts-ignore
+                                                            '--hover-rotate': service.birdConfig.hoverRotate
+                                                        }}
+                                                    />
+                                                </div>
+                                                <div style={{
+                                                    display: 'inline-block',
+                                                    backgroundColor: 'var(--color-primary)',
+                                                    color: '#1a1a1a',
+                                                    padding: '0.4rem 1rem',
+                                                    borderRadius: '999px',
+                                                    fontSize: '0.8rem',
+                                                    fontWeight: 800,
+                                                    fontFamily: "'Fredoka', sans-serif",
+                                                    marginBottom: '1.25rem',
+                                                    alignSelf: 'flex-start',
+                                                    border: '1px solid #1a1a1a'
+                                                }}>
+                                                    {service.pill}
+                                                </div>
+                                                <h3 style={{
+                                                    fontFamily: "'Bebas Neue', sans-serif",
+                                                    fontSize: '3.5rem',
+                                                    lineHeight: 0.9,
+                                                    marginBottom: '1.25rem',
+                                                    color: '#1a1a1a',
+                                                    letterSpacing: '-0.02em'
+                                                }}>
+                                                    {service.title}
+                                                </h3>
+                                                <p style={{
+                                                    fontFamily: "'Inter', sans-serif",
+                                                    fontSize: '1rem',
+                                                    lineHeight: '1.5',
+                                                    color: '#4a4a4a',
+                                                    marginBottom: '2.5rem',
+                                                    fontWeight: 500
+                                                }}>
+                                                    {service.desc}
+                                                </p>
+                                                <ul style={{ listStyle: 'none', padding: 0, marginBottom: '2.5rem', flex: 1, color: '#1a1a1a', fontFamily: "'Inter', sans-serif", fontSize: '1rem' }}>
+                                                    {service.items.map(item => (
+                                                        <li key={item} style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '0.75rem', fontSize: '1rem', fontWeight: 500 }}>
+                                                            <div style={{ width: '6px', height: '6px', backgroundColor: 'var(--color-primary)', borderRadius: '50%' }}></div>
+                                                            {item}
+                                                        </li>
+                                                    ))}
+                                                </ul>
+                                                <Button style={{
+                                                    width: '100%',
+                                                    backgroundColor: 'var(--color-primary)',
+                                                    color: '#1a1a1a',
+                                                    fontFamily: "'Bebas Neue', sans-serif",
+                                                    fontWeight: 800,
+                                                    borderRadius: '0.5rem',
+                                                    textTransform: 'uppercase',
+                                                    fontSize: '2rem',
+                                                    padding: '0.75rem',
+                                                    lineHeight: 1,
+                                                    letterSpacing: '0.02em'
+                                                }} onClick={() => navigate('/services')}>
+                                                    Find Out More
+                                                </Button>
                                             </div>
-                                            <div style={{
-                                                display: 'inline-block',
-                                                backgroundColor: 'var(--color-primary)',
-                                                color: '#1a1a1a',
-                                                padding: '0.4rem 1rem',
-                                                borderRadius: '999px',
-                                                fontSize: '0.8rem',
-                                                fontWeight: 800,
-                                                fontFamily: "'Fredoka', sans-serif",
-                                                marginBottom: '1.25rem',
-                                                alignSelf: 'flex-start',
-                                                border: '1px solid #1a1a1a'
-                                            }}>
-                                                {service.pill}
-                                            </div>
-                                            <h3 style={{
-                                                fontFamily: "'Bebas Neue', sans-serif",
-                                                fontSize: '3.5rem',
-                                                lineHeight: 0.9,
-                                                marginBottom: '1.25rem',
-                                                color: '#1a1a1a',
-                                                letterSpacing: '-0.02em'
-                                            }}>
-                                                {service.title}
-                                            </h3>
-                                            <p style={{
-                                                fontFamily: "'Inter', sans-serif",
-                                                fontSize: '1rem',
-                                                lineHeight: '1.5',
-                                                color: '#4a4a4a',
-                                                marginBottom: '2.5rem',
-                                                fontWeight: 500
-                                            }}>
-                                                {service.desc}
-                                            </p>
-                                            <ul style={{ listStyle: 'none', padding: 0, marginBottom: '2.5rem', flex: 1, color: '#1a1a1a', fontFamily: "'Inter', sans-serif", fontSize: '1rem' }}>
-                                                {service.items.map(item => (
-                                                    <li key={item} style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '0.75rem', fontSize: '1rem', fontWeight: 500 }}>
-                                                        <div style={{ width: '6px', height: '6px', backgroundColor: 'var(--color-primary)', borderRadius: '50%' }}></div>
-                                                        {item}
-                                                    </li>
-                                                ))}
-                                            </ul>
-                                            <Button style={{
-                                                width: '100%',
-                                                backgroundColor: 'var(--color-primary)',
-                                                color: '#1a1a1a',
-                                                fontFamily: "'Bebas Neue', sans-serif",
-                                                fontWeight: 800,
-                                                borderRadius: '0.5rem',
-                                                textTransform: 'uppercase',
-                                                fontSize: '2rem',
-                                                padding: '0.75rem',
-                                                lineHeight: 1,
-                                                letterSpacing: '0.02em'
-                                            }}>
-                                                Find Out More
-                                            </Button>
-                                        </div>
-                                    ))}
+                                        ))}
+                                    </div>
                                 </div>
 
                                 {/* DESKTOP LAYOUT (Sliced Grid) */}
@@ -397,7 +428,7 @@ const Home = () => {
                                                 lineHeight: 1,
                                                 letterSpacing: '0.02em',
                                                 boxShadow: 'none'
-                                            }}>
+                                            }} onClick={() => navigate('/services')}>
                                                 Find Out More
                                             </Button>
                                         </div>
@@ -425,7 +456,7 @@ const Home = () => {
                             <p style={{ fontSize: '1.5rem', lineHeight: 1.5, marginBottom: '2rem', fontFamily: "'Inter', sans-serif" }}>
                                 Not just a website — a complete brand foundation, backed by strategy and ongoing support, so you’re never left guessing what’s next.
                             </p>
-                            <Button size="lg" style={{ backgroundColor: 'var(--color-primary)', color: 'black', width: '100%' }}>See What You Get</Button>
+                            <Button size="lg" style={{ backgroundColor: 'var(--color-primary)', color: 'black', width: '100%' }} onClick={() => navigate('/services')}>See What You Get</Button>
                         </div>
                     </div>
                 </Container>
@@ -469,7 +500,7 @@ const Home = () => {
                             The reference just shows the project. I will keep "OUR WORK" as the section title.
                         */}
                         <h2 style={{ fontSize: '5rem', margin: 0, color: 'white', lineHeight: 0.8 }}>OUR WORK</h2>
-                        <Button style={{ backgroundColor: '#6BFF8E', color: 'black', fontWeight: 800, border: 'none' }}>VIEW ALL PROJECTS →</Button>
+                        <Button style={{ backgroundColor: '#6BFF8E', color: 'black', fontWeight: 800, border: 'none' }} onClick={() => navigate('/work')}>VIEW ALL PROJECTS →</Button>
                     </div>
 
                     <div style={{ display: 'flex', flexDirection: 'column', gap: '8rem' }}>
@@ -705,96 +736,116 @@ const Home = () => {
                         <p style={{ color: 'var(--color-text-muted)', fontSize: '1.5rem', fontFamily: "'Inter', sans-serif" }}>Small team, big results. Every project gets senior-level attention.</p>
                     </div>
 
-                    <div style={{
-                        display: 'flex',
-                        gap: '1.5rem',
-                        overflowX: 'auto',
-                        paddingBottom: '2rem',
-                        scrollSnapType: 'x mandatory',
-                        overscrollBehaviorX: 'contain',
-                        WebkitOverflowScrolling: 'touch',
-                        scrollbarWidth: 'none' /* Firefox */
-                    }} className="hide-scrollbar">
-                        <style>{`
+                    {/* Scroll Container Wrapper for Indicator */}
+                    <div style={{ position: 'relative' }}>
+                        {/* Glowing Indicator Line */}
+                        <div style={{
+                            position: 'absolute',
+                            right: 0,
+                            top: '50%',
+                            transform: 'translateY(-50%)',
+                            width: '4px',
+                            height: '40%',
+                            backgroundColor: '#6BFF8E',
+                            borderRadius: '2px',
+                            boxShadow: '0 0 10px #6BFF8E, 0 0 20px #6BFF8E',
+                            zIndex: 20,
+                            pointerEvents: 'none',
+                            opacity: 0.8
+                        }}></div>
+
+                        <div style={{
+                            display: 'flex',
+                            gap: '1.5rem',
+                            overflowX: 'auto',
+                            padding: '0 1.5rem 2rem 1.5rem',
+                            scrollSnapType: 'x mandatory',
+                            overscrollBehaviorX: 'contain',
+                            WebkitOverflowScrolling: 'touch',
+                            scrollbarWidth: 'none' /* Firefox */
+                        }} className="hide-scrollbar">
+                            <style>{`
                             .hide-scrollbar::-webkit-scrollbar { display: none; }
                         `}</style>
-                        {[
-                            { name: "ALEX", role: "FOUNDER & STRATEGY", img: TeamAlex },
-                            { name: "SARAH", role: "DESIGN LEAD", img: TeamSarah },
-                            { name: "MICHAEL", role: "DEVELOPMENT", img: TeamMichael },
-                            { name: "JESS", role: "COPY & CONTENT", img: TeamJess }
-                        ].map((member, i) => (
-                            <div key={i} className="card" style={{
-                                position: 'relative',
-                                minWidth: '280px',
-                                height: '420px',
-                                borderRadius: '1.5rem',
-                                overflow: 'hidden',
-                                flex: '0 0 auto',
-                                scrollSnapAlign: 'start',
-                                border: 'none',
-                                backgroundColor: 'transparent'
-                            }}>
-                                {/* Full Height Image */}
-                                <img src={member.img} alt={member.name} style={{
-                                    width: '100%',
-                                    height: '100%',
-                                    objectFit: 'cover',
-                                    filter: 'grayscale(100%) brightness(0.9)',
-                                    transition: 'all 0.5s ease'
-                                }}
-                                    onMouseEnter={(e) => {
-                                        e.currentTarget.style.transform = 'scale(1.05)';
-                                        e.currentTarget.style.filter = 'grayscale(0%) brightness(1)';
-                                    }}
-                                    onMouseLeave={(e) => {
-                                        e.currentTarget.style.transform = 'scale(1)';
-                                        e.currentTarget.style.filter = 'grayscale(100%) brightness(0.9)';
-                                    }}
-                                />
-
-                                {/* Gradient Overlay */}
-                                <div style={{
-                                    position: 'absolute',
-                                    bottom: 0,
-                                    left: 0,
-                                    width: '100%',
-                                    height: '60%',
-                                    background: 'linear-gradient(to top, rgba(0,0,0,0.9), transparent)',
-                                    pointerEvents: 'none'
-                                }}></div>
-
-                                {/* Text Content Overlay */}
-                                <div style={{
-                                    position: 'absolute',
-                                    bottom: 0,
-                                    left: 0,
-                                    width: '100%',
-                                    padding: '1.5rem',
-                                    zIndex: 10
+                            {[
+                                { name: "ALEX", role: "FOUNDER & STRATEGY", img: TeamAlex },
+                                { name: "SARAH", role: "DESIGN LEAD", img: TeamSarah },
+                                { name: "MICHAEL", role: "DEVELOPMENT", img: TeamMichael },
+                                { name: "JESS", role: "COPY & CONTENT", img: TeamJess }
+                            ].map((member, i) => (
+                                <div key={i} className="card" style={{
+                                    position: 'relative',
+                                    minWidth: '280px',
+                                    height: '420px',
+                                    borderRadius: '1.5rem',
+                                    overflow: 'hidden',
+                                    flex: '0 0 auto',
+                                    scrollSnapAlign: 'center',
+                                    border: 'none',
+                                    backgroundColor: 'transparent'
                                 }}>
-                                    <h3 style={{
-                                        fontSize: '3rem',
-                                        marginBottom: '0.25rem',
-                                        lineHeight: 0.85,
-                                        color: 'white',
-                                        fontFamily: "'Bebas Neue', sans-serif"
+                                    {/* Full Height Image */}
+                                    <img src={member.img} alt={member.name} style={{
+                                        width: '100%',
+                                        height: '100%',
+                                        objectFit: 'cover',
+                                        objectPosition: 'top center',
+                                        filter: 'grayscale(100%) brightness(0.9)',
+                                        transition: 'all 0.5s ease'
+                                    }}
+                                        onMouseEnter={(e) => {
+                                            e.currentTarget.style.transform = 'scale(1.05)';
+                                            e.currentTarget.style.filter = 'grayscale(0%) brightness(1)';
+                                        }}
+                                        onMouseLeave={(e) => {
+                                            e.currentTarget.style.transform = 'scale(1)';
+                                            e.currentTarget.style.filter = 'grayscale(100%) brightness(0.9)';
+                                        }}
+                                    />
+
+                                    {/* Gradient Overlay */}
+                                    <div style={{
+                                        position: 'absolute',
+                                        bottom: 0,
+                                        left: 0,
+                                        width: '100%',
+                                        height: '60%',
+                                        background: 'linear-gradient(to top, rgba(0,0,0,0.9), transparent)',
+                                        pointerEvents: 'none'
+                                    }}></div>
+
+                                    {/* Text Content Overlay */}
+                                    <div style={{
+                                        position: 'absolute',
+                                        bottom: 0,
+                                        left: 0,
+                                        width: '100%',
+                                        padding: '1.5rem',
+                                        zIndex: 10
                                     }}>
-                                        {member.name}
-                                        <Check size={20} color="#00ff00" className="sticker" style={{ display: 'inline', marginLeft: '0.5rem', verticalAlign: 'middle' }} />
-                                    </h3>
-                                    <p style={{
-                                        color: 'rgba(255,255,255,0.7)',
-                                        fontWeight: 500,
-                                        fontSize: '1rem',
-                                        fontFamily: "'Inter', sans-serif",
-                                        margin: 0
-                                    }}>
-                                        {member.role}
-                                    </p>
+                                        <h3 style={{
+                                            fontSize: '3rem',
+                                            marginBottom: '0.25rem',
+                                            lineHeight: 0.85,
+                                            color: 'white',
+                                            fontFamily: "'Bebas Neue', sans-serif"
+                                        }}>
+                                            {member.name}
+                                            <Check size={20} color="#00ff00" className="sticker" style={{ display: 'inline', marginLeft: '0.5rem', verticalAlign: 'middle' }} />
+                                        </h3>
+                                        <p style={{
+                                            color: 'rgba(255,255,255,0.7)',
+                                            fontWeight: 500,
+                                            fontSize: '1rem',
+                                            fontFamily: "'Inter', sans-serif",
+                                            margin: 0
+                                        }}>
+                                            {member.role}
+                                        </p>
+                                    </div>
                                 </div>
-                            </div>
-                        ))}
+                            ))}
+                        </div>
                     </div>
                 </Container>
             </Section >

@@ -491,24 +491,24 @@ h6 {
 
 /* Work Section - Projects Image Height */
 @media (max-width: 768px) {
-  [style*="height: '450px'"] {
+  .work-project-image {
     height: 220px !important;
   }
 
   /* Reduce project title on mobile */
-  [style*="fontSize: '6rem'"] {
+  .work-project-title {
     font-size: 2.8rem !important;
   }
 
   /* Reduce "OUR WORK" header */
-  [style*="fontSize: '5rem'"] {
+  .work-header-text {
     font-size: 2.5rem !important;
   }
 }
 
 /* Team Section */
 @media (max-width: 768px) {
-  [style*="minWidth: '280px'"] {
+  .team-card {
     min-width: 200px !important;
     height: 280px !important;
   }
@@ -738,11 +738,11 @@ h6 {
   }
 
   /* Work section extra small */
-  [style*="fontSize: '6rem'"] {
+  .work-project-title {
     font-size: 2.2rem !important;
   }
 
-  [style*="height: '450px'"] {
+  .work-project-image {
     height: 180px !important;
   }
 }

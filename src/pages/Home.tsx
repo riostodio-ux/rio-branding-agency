@@ -545,7 +545,7 @@ const Home = () => {
                             I'll keep the "OUR WORK" header but maybe smaller or less intrusive? 
                             The reference just shows the project. I will keep "OUR WORK" as the section title.
                         */}
-                        <h2 style={{ fontSize: '5rem', margin: 0, color: 'white', lineHeight: 0.8 }}>OUR WORK</h2>
+                        <h2 className="work-header-text" style={{ fontSize: '5rem', margin: 0, color: 'white', lineHeight: 0.8 }}>OUR WORK</h2>
                         <Button style={{ backgroundColor: '#6BFF8E', color: 'black', fontWeight: 800, border: 'none' }} onClick={() => navigate('/work')}>VIEW ALL PROJECTS →</Button>
                     </div>
 
@@ -565,7 +565,7 @@ const Home = () => {
                                 }}>
                                     FINTECH + STRATEGY
                                 </div>
-                                <h3 style={{
+                                <h3 className="work-project-title" style={{
                                     fontSize: '6rem',
                                     lineHeight: 0.85,
                                     marginBottom: '1.5rem',
@@ -644,7 +644,7 @@ const Home = () => {
                                 }}>
                                     SAAS + BRANDING
                                 </div>
-                                <h3 style={{
+                                <h3 className="work-project-title" style={{
                                     fontSize: '6rem',
                                     lineHeight: 0.85,
                                     marginBottom: '1.5rem',
@@ -819,7 +819,7 @@ const Home = () => {
                                 { name: "MICHAEL", role: "DEVELOPMENT", img: TeamMichael },
                                 { name: "JESS", role: "COPY & CONTENT", img: TeamJess }
                             ].map((member, i) => (
-                                <div key={i} className="card" style={{
+                                <div key={i} className="card team-card" style={{
                                     position: 'relative',
                                     minWidth: '280px',
                                     height: '420px',

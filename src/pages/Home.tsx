@@ -869,7 +869,7 @@ const Home = () => {
                                         padding: '1.5rem',
                                         zIndex: 10
                                     }}>
-                                        <h3 style={{
+                                        <h3 className="team-member-name" style={{
                                             fontSize: '3rem',
                                             marginBottom: '0.25rem',
                                             lineHeight: 0.85,
@@ -879,7 +879,7 @@ const Home = () => {
                                             {member.name}
                                             <Check size={20} color="#00ff00" className="sticker" style={{ display: 'inline', marginLeft: '0.5rem', verticalAlign: 'middle' }} />
                                         </h3>
-                                        <p style={{
+                                        <p className="team-member-role" style={{
                                             color: 'rgba(255,255,255,0.7)',
                                             fontWeight: 500,
                                             fontSize: '1rem',

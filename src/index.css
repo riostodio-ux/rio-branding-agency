@@ -497,7 +497,7 @@ h6 {
 
   /* Reduce project title on mobile */
   .work-project-title {
-    font-size: 2.8rem !important;
+    font-size: 2.2rem !important;
   }
 
   /* Reduce "OUR WORK" header */
@@ -509,8 +509,18 @@ h6 {
 /* Team Section */
 @media (max-width: 768px) {
   .team-card {
-    min-width: 200px !important;
-    height: 280px !important;
+    min-width: unset !important;
+    width: 70vw !important;
+    max-width: 240px !important;
+    height: 320px !important;
+  }
+
+  .team-member-name {
+    font-size: 1.8rem !important;
+  }
+
+  .team-member-role {
+    font-size: 0.8rem !important;
   }
 }
 

@@ -5,3 +5,4 @@ export { default as Work } from './Work';
 export { default as Process } from './Process';
 export { default as Contact } from './Contact';
 export { default as Estimate } from './Estimate';
+export { default as ProjectDetail } from './ProjectDetail';

@@ -4,7 +4,7 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import CustomCursor from './components/CustomCursor';
 import { useLenis } from './hooks/useLenis';
-import { Home, About, Services, Work, Process, Contact, Estimate } from './pages';
+import { Home, About, Services, Work, Process, Contact, Estimate, ProjectDetail } from './pages';
 
 // Scroll to top on route change
 const ScrollToTop = () => {
@@ -39,6 +39,7 @@ function App() {
             <Route path="/process" element={<Process />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/estimate" element={<Estimate />} />
+            <Route path="/work/:projectId" element={<ProjectDetail />} />
           </Routes>
         </main>
         <Footer />

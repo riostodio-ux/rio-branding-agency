@@ -48,7 +48,14 @@ const Process = () => {
 
     return (
         <div style={{ backgroundColor: theme.bg, minHeight: '100vh', color: theme.text }}>
-            <Section style={{ paddingTop: '10rem', paddingBottom: '4rem' }}>
+            <Section style={{ paddingTop: '14rem', paddingBottom: '4rem' }} className="process-header-section">
+                <style>{`
+                    @media (max-width: 768px) {
+                        .process-header-section {
+                            padding-top: 14rem !important;
+                        }
+                    }
+                `}</style>
                 <Container>
                     <motion.h1
                         initial={{ opacity: 0, y: 30 }}

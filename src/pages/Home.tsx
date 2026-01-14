@@ -2,7 +2,7 @@ import Hero from '../components/Hero';
 import { motion } from 'framer-motion';
 import { Section, Container } from '../components/Layout';
 import Button from '../components/Button';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { Check, X, Star, ArrowRight, ArrowUpRight } from 'lucide-react';
 
 // Assets
@@ -538,7 +538,7 @@ const Home = () => {
                                 }}>
                                     Redefining trust for the decentralized economy.
                                 </p>
-                                <a href="#" style={{
+                                <Link to="/work/apex-finance" style={{
                                     color: '#6BFF8E',
                                     fontWeight: 700,
                                     fontSize: '1rem',
@@ -551,7 +551,7 @@ const Home = () => {
                                     textTransform: 'uppercase'
                                 }}>
                                     VIEW CASE STUDY <ArrowUpRight size={18} />
-                                </a>
+                                </Link>
                             </div>
 
                             <div style={{
@@ -617,7 +617,7 @@ const Home = () => {
                                 }}>
                                     Turning complex data into clear, actionable insights.
                                 </p>
-                                <a href="#" style={{
+                                <Link to="/work/nebula-ai" style={{
                                     color: '#6BFF8E',
                                     fontWeight: 700,
                                     fontSize: '1rem',
@@ -630,7 +630,7 @@ const Home = () => {
                                     textTransform: 'uppercase'
                                 }}>
                                     VIEW CASE STUDY <ArrowUpRight size={18} />
-                                </a>
+                                </Link>
                             </div>
 
                             <div style={{

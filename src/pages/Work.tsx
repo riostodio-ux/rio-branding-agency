@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { Section, Container } from '../components/Layout';
 import { ArrowUpRight } from 'lucide-react';
 import Button from '../components/Button';
@@ -20,22 +20,25 @@ const Work = () => {
     const projects = [
         {
             client: 'APEX FINANCE',
+            slug: 'apex-finance',
             desc: 'Redefining trust for the decentralized economy.',
-            year: '2024',
+            year: '2026',
             tags: ['Branding', 'Web Design'],
             img: ProjectPayflow
         },
         {
             client: 'NEBULA AI',
+            slug: 'nebula-ai',
             desc: 'The face of invisible intelligence.',
-            year: '2023',
+            year: '2025',
             tags: ['Identity', '3D Motion'],
             img: ProjectDataminder
         },
         {
             client: 'VELOCE',
+            slug: 'veloce',
             desc: 'Speed, dust, and luxury automotive design.',
-            year: '2024',
+            year: '2026',
             tags: ['Web Design', 'Strategy'],
             img: ProjectPayflow // Reused as placeholder
         }
@@ -63,8 +66,7 @@ const Work = () => {
                     }}>
                         SELECTED <br />
                         <span style={{
-                            WebkitTextStroke: `2px ${theme.accent}`,
-                            color: 'transparent'
+                            color: theme.accent
                         }}>WORK.</span>
                     </h1>
                     <p style={{
@@ -129,7 +131,7 @@ const Work = () => {
                                         {project.desc}
                                     </p>
 
-                                    <div style={{
+                                    <Link to={`/work/${project.slug}`} style={{
                                         display: 'inline-flex',
                                         alignItems: 'center',
                                         gap: '0.5rem',
@@ -141,10 +143,11 @@ const Work = () => {
                                         color: theme.text,
                                         borderBottom: `1px solid ${theme.accent}`,
                                         paddingBottom: '0.25rem',
-                                        cursor: 'pointer'
+                                        cursor: 'pointer',
+                                        textDecoration: 'none'
                                     }}>
                                         View Case Study <ArrowUpRight size={18} color={theme.accent} />
-                                    </div>
+                                    </Link>
                                 </div>
 
                                 {/* Visual Preview */}

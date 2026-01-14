@@ -40,7 +40,14 @@ const Services = () => {
 
     return (
         <div style={{ backgroundColor: theme.bg, minHeight: '100vh', color: theme.text }}>
-            <Section style={{ paddingTop: '10rem', paddingBottom: '4rem' }}>
+            <Section style={{ paddingTop: '14rem', paddingBottom: '4rem' }} className="services-header-section">
+                <style>{`
+                    @media (max-width: 768px) {
+                        .services-header-section {
+                            padding-top: 14rem !important;
+                        }
+                    }
+                `}</style>
                 <Container>
                     {/* Massive Header */}
                     <h1 style={{

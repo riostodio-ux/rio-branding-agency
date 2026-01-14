@@ -1,5 +1,6 @@
 import { Container } from './Layout';
 import { Instagram, Linkedin, Twitter, Shield, Lock, Star } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
     return (
@@ -24,8 +25,19 @@ const Footer = () => {
                     <div>
                         <h4 style={{ textTransform: 'uppercase', marginBottom: '2rem', fontSize: '1rem', letterSpacing: '0.1em' }}>Navigation</h4>
                         <ul style={{ listStyle: 'none', padding: 0, display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-                            {['Services', 'What You Get', 'Our Work', 'Pricing', 'About', 'Contact'].map(item => (
-                                <li key={item}><a href="#" style={{ fontSize: '1.1rem', fontWeight: 500, color: 'var(--color-text-muted)', transition: 'color 0.2s' }}>{item}</a></li>
+                            {[
+                                { label: 'Services', path: '/services' },
+                                { label: 'What You Get', path: '/process' },
+                                { label: 'Our Work', path: '/work' },
+                                { label: 'Pricing', path: '/estimate' },
+                                { label: 'About', path: '/about' },
+                                { label: 'Contact', path: '/contact' }
+                            ].map(item => (
+                                <li key={item.label}>
+                                    <Link to={item.path} style={{ fontSize: '1.1rem', fontWeight: 500, color: 'var(--color-text-muted)', transition: 'color 0.2s', textDecoration: 'none' }}>
+                                        {item.label}
+                                    </Link>
+                                </li>
                             ))}
                         </ul>
                     </div>
@@ -34,8 +46,17 @@ const Footer = () => {
                     <div>
                         <h4 style={{ textTransform: 'uppercase', marginBottom: '2rem', fontSize: '1rem', letterSpacing: '0.1em' }}>Helpful Links</h4>
                         <ul style={{ listStyle: 'none', padding: 0, display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-                            {['Knowledge Hub', 'Brand Strategy Guide', 'ROI Calculator', 'Privacy Policy'].map(item => (
-                                <li key={item}><a href="#" style={{ fontSize: '1.1rem', fontWeight: 500, color: 'var(--color-text-muted)', transition: 'color 0.2s' }}>{item}</a></li>
+                            {[
+                                { label: 'Knowledge Hub', path: '/contact' },
+                                { label: 'Brand Strategy Guide', path: '/process' },
+                                { label: 'ROI Calculator', path: '/estimate' },
+                                { label: 'Privacy Policy', path: '/contact' }
+                            ].map(item => (
+                                <li key={item.label}>
+                                    <Link to={item.path} style={{ fontSize: '1.1rem', fontWeight: 500, color: 'var(--color-text-muted)', transition: 'color 0.2s', textDecoration: 'none' }}>
+                                        {item.label}
+                                    </Link>
+                                </li>
                             ))}
                         </ul>
                     </div>
@@ -55,8 +76,8 @@ const Footer = () => {
                 <div style={{ borderTop: '1px solid var(--color-border)', paddingTop: '2rem', display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap', gap: '1rem', color: 'var(--color-text-muted)', fontSize: '0.9rem' }}>
                     <div>© 2026 Rio Branding Agency. All rights reserved.</div>
                     <div style={{ display: 'flex', gap: '2rem' }}>
-                        <a href="#" style={{ color: 'var(--color-text-muted)', textDecoration: 'none' }}>Privacy Policy</a>
-                        <a href="#" style={{ color: 'var(--color-text-muted)', textDecoration: 'none' }}>Terms of Service</a>
+                        <Link to="/contact" style={{ color: 'var(--color-text-muted)', textDecoration: 'none' }}>Privacy Policy</Link>
+                        <Link to="/contact" style={{ color: 'var(--color-text-muted)', textDecoration: 'none' }}>Terms of Service</Link>
                     </div>
                 </div>
             </Container>

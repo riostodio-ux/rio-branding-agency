@@ -1,6 +1,6 @@
 import { Container } from './Layout';
 import Button from './Button';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 
 
 const Hero = () => {
@@ -101,7 +101,7 @@ const Hero = () => {
                     }} onClick={() => navigate('/work')}>
                         View Our Work
                     </Button>
-                    <a href="/contact" style={{
+                    <Link to="/contact" style={{
                         color: 'var(--color-primary)',
                         fontSize: '1.25rem',
                         fontWeight: 600,
@@ -111,7 +111,7 @@ const Hero = () => {
                         letterSpacing: '0.02em'
                     }}>
                         Book a Strategy Call
-                    </a>
+                    </Link>
                 </div>
 
             </Container>

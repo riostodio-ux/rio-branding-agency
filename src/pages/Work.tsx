@@ -45,7 +45,14 @@ const Work = () => {
         <div style={{ backgroundColor: theme.bg, minHeight: '100vh', color: theme.text }}>
 
             {/* Header */}
-            <Section style={{ paddingTop: '10rem', paddingBottom: '4rem' }}>
+            <Section style={{ paddingTop: '14rem', paddingBottom: '4rem' }} className="work-header-section">
+                <style>{`
+                    @media (max-width: 768px) {
+                        .work-header-section {
+                            padding-top: 14rem !important;
+                        }
+                    }
+                `}</style>
                 <Container>
                     <h1 style={{
                         fontSize: 'clamp(5rem, 10vw, 11rem)',
